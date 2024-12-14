@@ -168,5 +168,6 @@
                 </div>
             </div>
         </div>
+        @include('cookies')
     </body>
 </html>

@@ -37,5 +37,12 @@ Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 })->name('privacy-policy');
 
+Route::get('/cookie', function () {
+    return view('cookie');
+});
+
+Route::get('/politique-de-cookie', function () {
+    return view('politique-de-cookie');
+});
 
 require __DIR__ . '/auth.php';
