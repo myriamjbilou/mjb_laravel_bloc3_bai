@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="cookie-banner">
-        <p>Ce site utilise des cookies pour améliorer votre expérience. <a href="/politique-de-cookies" style="color: #77aaff;">En savoir plus</a></p>
+        <p>Ce site utilise des cookies pour améliorer votre expérience. <a href="/politique-de-cookies" style="color:rgb(0, 0, 0);">En savoir plus</a></p>
         <button id="accept-cookies">Accepter</button>
         <button id="decline-cookies">Refuser</button>
     </div>
