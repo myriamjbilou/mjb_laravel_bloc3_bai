@@ -28,19 +28,19 @@
 </head>
 <body>
     <div id="cookie-banner">
-        <p>Ce site utilise des cookies pour améliorer votre expérience. <a href="/politique-de-cookies" style="color:rgb(0, 0, 0);">En savoir plus</a></p>
-        <button id="accept-cookies">Accepter</button>
-        <button id="decline-cookies">Refuser</button>
+        <p>Ce site utilise des cookies pour améliorer votre expérience. <a href="/politique-de-cookie" style="color:rgb(0, 0, 0);">En savoir plus</a></p>
+        <button id="accept-cookie">Accepter</button>
+        <button id="decline-cookie">Refuser</button>
     </div>
 
     <script src="/path/to/js-cookie.js"></script>
     <script>
-        document.getElementById('accept-cookies').addEventListener('click', function() {
+        document.getElementById('accept-cookie').addEventListener('click', function() {
             Cookies.set('cookie-consent', 'accepted', { expires: 365 });
             document.getElementById('cookie-banner').style.display = 'none';
         });
 
-        document.getElementById('decline-cookies').addEventListener('click', function() {
+        document.getElementById('decline-cookie').addEventListener('click', function() {
             Cookies.set('cookie-consent', 'declined', { expires: 365 });
             document.getElementById('cookie-banner').style.display = 'none';
         });
