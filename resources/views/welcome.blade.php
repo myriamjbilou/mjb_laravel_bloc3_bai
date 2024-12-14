@@ -168,6 +168,6 @@
                 </div>
             </div>
         </div>
-        @include('cookies')
+    @include('cookies')
     </body>
 </html>

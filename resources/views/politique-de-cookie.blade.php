@@ -33,7 +33,7 @@
             background: #fff;
             margin-top: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(87, 80, 80, 0.33);
+            box-shadow: 0 0 10px rgba(85, 80, 80, 0.47);
         }
         h2 {
             color: #333;
