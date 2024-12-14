@@ -32,6 +32,6 @@
                 {{ $slot }}
             </main>
         </div>
-        @include('cookie')
+        @include('cookies')
     </body>
 </html>
