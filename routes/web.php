@@ -33,5 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment}', [IdeaController::class, 'destroyComment'])->name('comments.destroy');
 });
 
+Route::get('/privacy-policy', function () {
+    return view('privacy-policy');
+})->name('privacy-policy');
+
 
 require __DIR__ . '/auth.php';
