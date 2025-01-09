@@ -6,6 +6,7 @@ use App\Http\Controllers\ideacontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrivacyCharterController;
 use App\Http\Middleware\CheckPrivacyCharterAcceptance;
+use App\Http\Controllers\ConsentController;
 
 
 
@@ -45,4 +46,7 @@ Route::get('/politique-de-cookie', function () {
     return view('politique-de-cookie');
 });
 
+Route::post('/save-consent', [ConsentController::class, 'store'])->name('consent.store');
+
 require __DIR__ . '/auth.php';
+
