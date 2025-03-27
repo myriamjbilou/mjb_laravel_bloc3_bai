@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Log;
+use Illuminate\Validation\ValidationException;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -22,14 +24,36 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+    public function store(Request $request): RedirectResponse
+{
+    // Validation des données du formulaire
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
 
-        $request->session()->regenerate();
+    // Vérification des identifiants
+    if (!Auth::attempt($credentials, $request->boolean('remember'))) {
+        // Log de l'échec de connexion
+        Log::record('Échec de connexion', 'login_failed');
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        throw ValidationException::withMessages([
+            'email' => __('Ces identifiants ne correspondent pas à nos enregistrements.'),
+        ]);
     }
+
+    // Regénération de la session après connexion
+    $request->session()->regenerate();
+
+    // Log de la connexion réussie
+    Log::record('Connexion réussie', 'login_success');
+
+    // Suppression des anciens logs (plus de 180 jours)
+    Log::deleteOldLogs(180);
+
+    return redirect()->intended(route('dashboard'));
+}
+
 
     /**
      * Destroy an authenticated session.

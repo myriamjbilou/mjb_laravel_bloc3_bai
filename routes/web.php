@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrivacyCharterController;
 use App\Http\Middleware\CheckPrivacyCharterAcceptance;
 use App\Http\Controllers\ConsentController;
+use App\Http\Controllers\LogController;
+
 
 
 
@@ -47,6 +49,8 @@ Route::get('/politique-de-cookie', function () {
 });
 
 Route::post('/save-consent', [ConsentController::class, 'store'])->name('consent.store');
+
+Route::get('/logs', [LogController::class, 'index'])->name('logs.index');
 
 require __DIR__ . '/auth.php';
 
