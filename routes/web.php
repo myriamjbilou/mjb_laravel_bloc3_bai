@@ -8,6 +8,7 @@ use App\Http\Controllers\PrivacyCharterController;
 use App\Http\Middleware\CheckPrivacyCharterAcceptance;
 use App\Http\Controllers\ConsentController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ImportController;
 
 
 
@@ -51,6 +52,9 @@ Route::get('/politique-de-cookie', function () {
 Route::post('/save-consent', [ConsentController::class, 'store'])->name('consent.store');
 
 Route::get('/logs', [LogController::class, 'index'])->name('logs.index');
+
+
+Route::get('/filter', [ImportController::class, 'filterDump'])->name('import.filter');
 
 require __DIR__ . '/auth.php';
 
