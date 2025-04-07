@@ -61,7 +61,7 @@
                                 <div class="flex justify-between items-center mb-2">
                                     <h3 class="text-xl font-bold">{{ $idea->title }}</h3>
                                     <small class="text-gray-500">
-                                        Publiée par {{ $idea->user->name }} 
+                                        Publiée par {{ $idea->user?->name ?? 'Utilisateur inconnu' }}
                                         le {{ $idea->created_at->format('d/m/Y à H:i') }}
                                     </small>
                                 </div>

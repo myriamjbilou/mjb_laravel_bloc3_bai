@@ -9,6 +9,8 @@ use App\Http\Middleware\CheckPrivacyCharterAcceptance;
 use App\Http\Controllers\ConsentController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\RedirectController;
+
 
 
 
@@ -55,6 +57,9 @@ Route::get('/logs', [LogController::class, 'index'])->name('logs.index');
 
 
 Route::get('/filter', [ImportController::class, 'filterDump'])->name('import.filter');
+
+Route::get('/redirect', [RedirectController::class, 'redirect'])->name('redirect.test');
+
 
 require __DIR__ . '/auth.php';
 
